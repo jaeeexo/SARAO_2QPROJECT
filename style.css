@@ -1,0 +1,37 @@
+body {
+    background: #ffe6f2;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    background: #ff99c8;
+    padding: 12px;
+    text-align: center;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+}
+
+.container {
+    background: white;
+    margin: 30px auto;
+    padding: 25px;
+    width: 80%;
+    max-width: 700px;
+    border-radius: 15px;
+    box-shadow: 0 0 10px #ffb6d9;
+    text-align: center;
+}
+
+.club-box {
+    background: #ffe0ef;
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 15px;
+}
