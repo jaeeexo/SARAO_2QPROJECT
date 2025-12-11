@@ -1,12 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GWA Calculator</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="https://pyscript.net/releases/2024.1.1/pyscript.js"></script>
+</head>
+
+<body>
+
+    <div class="navbar">
+        <a href="home.html">Home</a>
+        <a href="calculator.html">GWA Calculator</a>
+        <a href="clubs.html">Clubs</a>
+    </div>
+
+    <h1>GWA Calculator</h1>
+
+    <label>First Name:</label>
+    <input type="text" id="fname">
+
+    <label>Last Name:</label>
+    <input type="text" id="lname">
+
+    <h3>Enter Grades</h3>
+    <input id="science" placeholder="Science">
+    <input id="math" placeholder="Math">
+    <input id="english" placeholder="English">
+    <input id="filipino" placeholder="Filipino">
+    <input id="ict" placeholder="ICT">
+    <input id="pe" placeholder="PE">
+
+    <button onclick="calculate_gwa()">Calculate</button>
+
+    <div id="output"></div>
+
+    <py-script>
 def calculate_gwa():
-    # Get input values from the HTML fields
     fname = Element("fname").value.strip()
     lname = Element("lname").value.strip()
 
     subjects = ["Science", "Math", "English", "Filipino", "ICT", "PE"]
     grades = []
 
-    # Collect grades from inputs
     for subj in subjects:
         value = Element(subj.lower()).value
         if value:
@@ -14,18 +49,18 @@ def calculate_gwa():
         else:
             grades.append(0.0)
 
-    # Tuple of units (each subject has 1 unit here)
     units = (1, 1, 1, 1, 1, 1)
-
-    # Calculate weighted average
     total_units = sum(units)
     weighted_sum = sum(g * u for g, u in zip(grades, units))
     gwa = weighted_sum / total_units if total_units > 0 else 0
 
-    # Format output
-    output = f"<b>Name:</b> {fname} {lname}<br><br>"
+    output = f"Name: {fname} {lname}<br><br>"
     for subj, grade in zip(subjects, grades):
         output += f"{subj}: {grade}<br>"
-    output += f"<div class='average-box'>Your general weighted average is {gwa:.2f}</div>"
+    output += f"<br>Your general weighted average is {gwa:.2f}<br>"
 
     Element("output").element.innerHTML = output
+    </py-script>
+
+</body>
+</html>
